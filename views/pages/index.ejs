@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../layout/head') %>
+
+<body>
+    <%- include('../layout/header') %>
+
+    <main>
+        <div class = "a"><h4>(<%=booksList.length%>)Saved Books</h4></div>
+
+        <div class="template">
+            <% booksList.forEach(book=>{%>
+                
+                <div class="card">
+                    <div class="img-container">
+                        <img src=<%=book.image %> alt="book">
+                    </div>
+                    <h3>
+                        <%=book.title %>
+                    </h3>
+                    <p>
+                        <%= book.author %>
+                    </p>
+                    <button class="submit"><a href="/book/<%=book.id%>">View Detailes</a></button>
+                </div>
+                <% }); %>
+        </div>
+    </main>
+    <%- include('../layout/footer') %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>

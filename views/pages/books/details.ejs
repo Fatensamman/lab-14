@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../layout/head') %>
+
+    <body>
+        <%- include('../../layout/header') %>
+            <main>
+                <div class="template">
+
+                    <div class="card">
+                        <div class="img-container">
+                            <img src=<%=book.image %> alt="book">
+                        </div>
+                        <h3>
+                            <%=book.title %>
+                        </h3>
+                        <p>
+                            <%= book.author %>
+                        </p>
+                        <p class="description">
+                            <%= book.description %>
+                        </p>
+                        <button class="submit"><a href="/book/update/<%=book.id%>">Update Detailes</a></button>
+
+                        <form action="/book/<%=book.id%>?_method=delete" method="POST">
+                            <button type="submit" value="Remove This Book" class="submit">Remove This Book</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <%- include('../../layout/footer') %>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+                <script src="/app.js"></script>
+    </body>
+
+</html>

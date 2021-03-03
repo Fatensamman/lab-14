@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../layout/head') %>
+
+<body>
+    <%- include('../../layout/header') %>
+    
+    <main>
+        <div class = "a"><h4>Searches Results</h4></div>
+
+        <div class="template">
+            <% bookLists.forEach(book=>{%>
+                <form action="/books" method="POST">
+                <div class="card">
+                    <div class="img-container">
+                        <img src=<%=book.image %> alt="book">
+                        <input type="hidden" value = "<%= book.image%>" name="image" >
+                    </div>
+                    <h3>
+                        <%=book.title %>
+                        <input type="hidden" value = "<%= book.title%>"  name="title">
+
+                    </h3>
+                    <p>
+                        <%= book.author %>
+                        <input type="hidden" value = "<%= book.author%>" name="author">
+                    </p>
+                    <p class ="description">
+                        <%= book.description %>
+                        <input type="hidden" value = "<%= book.description%>" name="description">
+                    </p>
+                    <p>
+                        <!-- <input type="hidden" value = "" name="isbn"> -->
+                    </p>
+                    <button type="submit" value = "Select this Book" class="submit">Select this Book</button> 
+                </div>
+            </form>
+                <% }); %>
+        </div>
+    </main>
+    <%- include('../../layout/footer') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="/app.js"></script>
+</body>
+
+</html>

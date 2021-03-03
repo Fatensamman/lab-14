@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../../layout/head') %>
+
+    <body>
+        <%- include('../../layout/header') %>
+            <main>
+                <div class = "a"><h4> Edit Book</h4></div>
+                
+                <div class="search">
+                    <form action="/book/<%= book.id %>?_method=put" method="POST">
+                        <input type="text" name="image" id="image" value="<%= book.image%>">
+                        <input type="text" name="title" id="title" value="<%= book.title%>">
+                        <input type="text" name="author" id="author" value="<%= book.author%>">
+                        <textarea name="description" id="description" cols="30"
+                            rows="10"><%=book.decription%></textarea>
+                        <button type="submit" value="Update Book" class="submit">Update Book</button>
+                    </form>
+                </div>
+            </main>
+
+            <%- include('../../layout/footer') %>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+                <script src="/app.js"></script>
+    </body>
+
+</html>
